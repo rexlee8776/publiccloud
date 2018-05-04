@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from containers.models import Service
+from services.kubernetes import K8SService
 
 LOG = logging.getLogger(__name__)
 
@@ -31,8 +32,9 @@ def create(request):
     body = json.loads(request.body)
 
     name = body.get('name')
-    url = 'https://www.baidu.com'
     user = request.session.get('user')
+
+    url = K8SService.create_service(name, user)
 
     Service.objects.create(name=name, url=url, user=user)
 
