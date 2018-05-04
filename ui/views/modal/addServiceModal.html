@@ -1,0 +1,18 @@
+<div>
+    <h4>Please enter new service name</h4>
+    <input type="text" ng-model="serviceName" />
+
+    <div style="text-align:center;margin-top:20px;">
+        <button class="btn btn-default" ng-disabled="!serviceName || serviceName == ''" ng-click="addService(serviceName)">Commit</button>
+    </div>
+
+</div>
+
+
+<style>
+input {
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+    width: 100%;
+}
+</style>
