@@ -1,0 +1,13 @@
+{
+  "name": "jQuery-rwdImageMaps",
+  "homepage": "https://github.com/stowball/jQuery-rwdImageMaps",
+  "_release": "afc88d07bc",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "afc88d07bc9b81c0418a69207d51ed6f0ddcc0b2"
+  },
+  "_source": "https://github.com/stowball/jQuery-rwdImageMaps.git",
+  "_target": "*",
+  "_originalSource": "jQuery-rwdImageMaps"
+}

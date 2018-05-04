@@ -1,0 +1,14 @@
+{
+  "name": "inspiniacss",
+  "homepage": "https://github.com/skylinelayla/INSPINIACSS",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "63c1e59ba8162ad155f0a9680099cefba0066c34"
+  },
+  "_source": "https://github.com/skylinelayla/INSPINIACSS.git",
+  "_target": "^0.0.1",
+  "_originalSource": "inspiniacss"
+}
