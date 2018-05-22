@@ -14,11 +14,21 @@ spec:
         image: opnfv/yardstick:stable
         ports:
         - containerPort: 5000 
-      - name: influxdb-k8s
-        image: tutum/influxdb:0.13
-        ports:
-        - containerPort: 8086
-      - name: grafana-k8s
-        image: grafana/grafana:4.4.3
-        ports:
-        - containerPort: 3000
+        volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: docker-sock
+      # - name: influxdb-k8s
+      #   image: tutum/influxdb:0.13
+      #   ports:
+      #   - containerPort: 8086
+      # - name: grafana-k8s
+      #   image: grafana/grafana:4.4.3
+      #   ports:
+      #   - containerPort: 3000
+      volumes:
+      - name: docker-sock
+        hostPath:
+          # directory location on host
+          path: /var/run/docker.sock
+          # this field is optional
+          # type: Directory
