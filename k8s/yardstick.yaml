@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: yardstick-service-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yardstick-service
+    spec:
+      containers:
+      - name: yardstick-k8s
+        image: opnfv/yardstick:stable
+        ports:
+        - containerPort: 5000 
+      - name: influxdb-k8s
+        image: tutum/influxdb:0.13
+        ports:
+        - containerPort: 8086
+      - name: grafana-k8s
+        image: grafana/grafana:4.4.3
+        ports:
+        - containerPort: 3000
