@@ -7,8 +7,8 @@ cp docker/supervisor.conf /etc/supervisor/conf.d/
 
 # install nginx
 # apt-get install -y nginx
-touch /var/run/publiccloud.sock
-chmod 666 /var/run/publiccloud.sock
+touch /var/run/yardstick-service.sock
+chmod 666 /var/run/yardstick-service.sock
 cp docker/publiccloud.conf /etc/nginx/conf.d/
 service nginx reload
 
