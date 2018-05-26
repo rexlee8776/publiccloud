@@ -14,7 +14,7 @@ service nginx reload
 
 # install uwsgi
 # apt-get install -y uwsgi
-mkdir -p /var/log/publiccloud
+mkdir -p /var/log/yardstick-service/
 
 # install python dependency
 # apt-get install -y python-pip
