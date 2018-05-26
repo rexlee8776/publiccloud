@@ -21,4 +21,4 @@ mkdir -p /var/log/yardstick-service/
 pip install -r requirements.txt
 
 # restart uwsgi
-uwsgi -i /home/publiccloud/docker/publiccloud.ini
+uwsgi -i /home/publiccloud/docker/yardstick-service.ini
