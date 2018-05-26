@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: yardstick-service-deployment
+  name: yardstick-service-deployment-delete
 spec:
   replicas: 1
   template:
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: yardstick-k8s
-        image: opnfv/yardstick:stable
+        image: rexlee8776/yardstick:service
         ports:
         - containerPort: 5000 
         volumeMounts:

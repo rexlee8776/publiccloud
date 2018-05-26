@@ -40,7 +40,7 @@ def main():
     # config.load_kube_config(config_file=consts.K8S_CONF_FILE)
     config.load_kube_config()
     extensions_v1beta1 = client.ExtensionsV1beta1Api()
-    with open('yardstick_bkp.yaml', 'r') as f:
+    with open('yardstick.yaml', 'r') as f:
         obj = yaml.load(f)
     print json.dumps(obj, indent=2)
     deployment = obj

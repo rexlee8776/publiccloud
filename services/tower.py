@@ -3,6 +3,16 @@ import socket
 import random
 
 from docker import Client
+from kubernetes import client, config
+import yaml
+
+
+def create_deployment(api_instance, deployment):
+    # Create deployement
+    api_response = api_instance.create_namespaced_deployment(
+        body=deployment,
+        namespace="default")
+    print("Deployment created. status='%s'" % str(api_response.status))
 
 
 def get_free_port(ip):
@@ -77,14 +87,22 @@ class Pod(object):
         self.user = user
 
     def create(self):
-        print ("service name is '%s' and user is '%s'" % (self.name, self.user))
-        print get_free_port('172.17.0.1')
-        yardstick_name = "yardstick_" + self.name
-        influxdb_name = "influxdb_" + self.name
-        grafana_name = "grafana_" + self.name
-        yardstick_port =  get_free_port('172.17.0.1')
-        client = Client('unix://var/run/docker.sock')
-        _create_yardstick_container(client, yardstick_name ,yardstick_port)
+        # print ("service name is '%s' and user is '%s'" % (self.name, self.user))
+        # print get_free_port('172.17.0.1')
+        # yardstick_name = "yardstick_" + self.name
+        # influxdb_name = "influxdb_" + self.name
+        # grafana_name = "grafana_" + self.name
+        # yardstick_port =  get_free_port('172.17.0.1')
+        # client = Client('unix://var/run/docker.sock')
+        # _create_yardstick_container(client, yardstick_name ,yardstick_port)
+
+        config.load_kube_config(config_file='/etc/kubernetes/admin.conf')
+        extensions_v1beta1 = client.ExtensionsV1beta1Api()
+
+        with open('/tmp/yardstick.yaml', 'r') as f:
+            deployment = yaml.load(f)
+        create_deployment(extensions_v1beta1, deployment)
+        yardstick_port = 5000
         return "http://172.16.10.137:%s/gui/index.html" % yardstick_port
 
 

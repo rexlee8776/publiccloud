@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from containers.models import Service
-from services.kubernetes import K8SService
+from services.tower import K8SService
 
 LOG = logging.getLogger(__name__)
 
