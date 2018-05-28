@@ -1,8 +1,10 @@
 # This file works to install yardstick service
 
 
-# set Yardstick Service Home
+# set Yardstick Service Variables
+PROJECT_NAME=yservice
 YARDSTICK_SERVICE_HOME=/home/publiccloud
+cd ${YARDSTICK_SERVICE_HOME}
 
 #apt-get update
 
@@ -12,22 +14,21 @@ cp docker/supervisor.conf /etc/supervisor/conf.d/
 
 # install nginx
 # apt-get install -y nginx
-touch /var/run/yardstick-service.sock
-chmod 666 /var/run/yardstick-service.sock
+touch /var/run/yservice.sock
+chmod 666 /var/run/yservice.sock
 
 # config ngix and reload
 rm /etc/nginx/conf.d/*.conf
-cp docker/yardstick-service.conf /etc/nginx/conf.d/
+cp docker/yservice.conf /etc/nginx/conf.d/
 service nginx reload
 
 # install uwsgi
 # apt-get install -y uwsgi
-mkdir -p /var/log/yardstick-service/
+mkdir -p /var/log/yservice/
 
 # install python dependency
 
-cd ${YARDSTICK_SERVICE_HOME}
 # apt-get install -y python-pip
 pip install -r requirements.txt
 # restart uwsgi
-uwsgi -i docker/yardstick-service.ini
+uwsgi -i docker/yservice.ini
