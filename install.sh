@@ -24,7 +24,9 @@ service nginx reload
 
 # install uwsgi
 # apt-get install -y uwsgi
-mkdir -p /var/log/yservice/
+mkdir -p /etc/${PROJECT_NAME}
+cp yservice-db.sqlite3 /etc/${PROJECT_NAME}/
+mkdir -p /var/log/${PROJECT_NAME}
 
 # install python dependency
 
