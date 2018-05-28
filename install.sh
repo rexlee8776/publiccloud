@@ -1,4 +1,4 @@
-rm /etc/nginx/conf.d/yardstick.conf
+rm /etc/nginx/conf.d/*.conf
 #apt-get update
 
 # install supervisor
@@ -9,7 +9,7 @@ cp docker/supervisor.conf /etc/supervisor/conf.d/
 # apt-get install -y nginx
 touch /var/run/yardstick-service.sock
 chmod 666 /var/run/yardstick-service.sock
-cp docker/publiccloud.conf /etc/nginx/conf.d/
+cp docker/yardstick-service.conf /etc/nginx/conf.d/
 service nginx reload
 
 # install uwsgi
