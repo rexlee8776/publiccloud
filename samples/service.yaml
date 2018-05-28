@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: yardstick-service-deployment-delete-2
+spec:
+    ports:
+    - port: 5000
+    selector:
+      app: yardstick-service
+    type: NodePort
