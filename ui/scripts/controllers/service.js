@@ -32,7 +32,7 @@ angular.module('opnfvApp')
                         alert(resp.data.msg);
                     }
                 }, function(err){
-                    alert('add service error');
+                    alert('Add service error!');
                 });
             }
 
