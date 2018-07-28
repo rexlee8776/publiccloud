@@ -13,7 +13,7 @@ spec:
       - name: yardstick-k8s
         image: rexlee8776/yardstick:service
         ports:
-        - containerPort: 5000 
+        - containerPort: 5000
         volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
