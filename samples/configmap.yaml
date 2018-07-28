@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yardstick-config
+  namespace: default
+data:
+  yardstick.conf: |-
+    [DEFAULT]
+    debug = False
+    dispatcher = influxdb
+    
+    [dispatcher_http]
+    timeout = 5
+    target = http://127.0.0.1:8000/results
+    
+    [dispatcher_file]
+    file_path = /tmp/yardstick.out
+    max_bytes = 0
+    backup_count = 0
+    
+    [dispatcher_influxdb]
+    timeout = 5
+    target = http://localhost:8086
+    db_name = yardstick
+    username = root
+    password = root
+    
+    [nsb]
+    trex_path = /opt/nsb_bin/trex/scripts
+    bin_path = /opt/nsb_bin
+    trex_client_lib = /opt/nsb_bin/trex_client/stl
